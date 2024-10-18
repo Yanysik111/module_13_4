@@ -42,6 +42,14 @@ async def send_calories(message, state):
     await message.answer(f'Ваша норма калорий: {result} ')
     await state.finish()
 
+@dp.message_handler(commands = ['start'])
+async def start(message):
+    await message.answer( 'Привет! Я бот помогающий твоему здоровью.', reply_markup = kb)
+
+@dp.message_handler()
+async def mes(message):
+    await message.answer('Введите команду /start, чтобы начать общение.')
+
 
 
 
